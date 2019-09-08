@@ -11,7 +11,6 @@ public class CMD : NetworkBehaviour
 
     private void Start()
     {
-        CmdSendName("Banana");
         NumText = GameObject.FindGameObjectWithTag("Finish").GetComponent<Text>();
         NumText.text = "value " + value;
     }
@@ -24,18 +23,6 @@ public class CMD : NetworkBehaviour
         {
             CmdAddNum(1);
         }
-    }
-
-    [Command]
-    void CmdSendName(string name)
-    {
-        RpcUpdateName(name);
-    }
-
-    [ClientRpc]
-    void RpcUpdateName(string name)
-    {
-        transform.name = name;
     }
 
     [Command]
